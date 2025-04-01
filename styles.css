@@ -154,10 +154,8 @@ nav {
 }
 
 .hero-content {
-    text-align: center;
-    padding: 20px;
-    max-width: 1200px;
-    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -195,6 +193,21 @@ nav {
 .video-container video {
     opacity: 0; /* Start with video hidden */
 }
+.video-container,
+.video-background {
+    height: 100vh;
+    object-position: center;
+}
+@media screen and (max-height: 600px) {
+    .video-container {
+        height: 60vh; /* Adjust for smaller vertical screens */
+    }
+}
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 15px;
