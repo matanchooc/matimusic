@@ -111,8 +111,8 @@ nav {
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+    text-align: center; /* Center all child elements */
+    width: 100%; /* Ensure full width for alignment */
 }
 
 
@@ -195,7 +195,12 @@ html, body {
         1px -1px 0 black,
       
 }
-
+.hero h1, 
+.hero h2, 
+.cta-button {
+    margin-left: auto;
+    margin-right: auto;
+}
 .cta-button {
     background-color: #e91e63 !important;
     color: white !important;
