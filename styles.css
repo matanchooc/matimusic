@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+#bio p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f0f0f0;
+    --accent-color: #4a90e2;
+    --text-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #1a1a1a !important; /* Matches your main content background */
+}
+
+body.piano-page {
+    background-image: url('piano-photo.JPG');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent background */
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 450;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -2; /* Behind content but above body background */
+    overflow: hidden;
+}
+#main-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8); /* Optional: Add subtle overlay for readability */
+}
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures full coverage without stretching */
+}
+
+.hero-content {
+    text-align: center;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep video in the background */
+}
+
+#original h2 {
+    color: var(--text-color) !important;
+    text-shadow: none !important;
+}
+.hero-image, .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures full coverage */
+    transition: opacity 1s ease; /* Smooth fade effect */
+}
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease;
+}
+.video-container video {
+    opacity: 0; /* Start with video hidden */
+}
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: white; /* NEW */
+    text-shadow: 
+        1px 1px 0 black,
+        -1px -1px 0 black,
+        1px -1px 0 black,
+       
+}
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+.hero h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: white; /* NEW */
+    text-shadow: 
+        1px 1px 0 black,
+        -1px -1px 0 black,
+        1px -1px 0 black,
+      
+}
+
+.cta-button {
+    background-color: #e91e63 !important;
+    color: white !important;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none !important; /* NEW - Removes underline */
+}
+
+.cta-button:hover {
+    background-color: #4a90e2 !important; /* Matches send button blue */
+}
+
+.content-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1.5s ease-out;
+}
+
+.content-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content-section.fade-in,
+.fade-in-on-scroll.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.arrangement-item {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.arrangement-link {
+    display: block;
+    width: 30%;
+    height: 185px;
+    overflow: hidden;
+}
+
+.arrangement-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.arrangement-details {
+    flex: 1;
+    padding-left: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.arrangement-item:hover {
+    transform: translateY(-5px);
+}
+
+.arrangement-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.arrangement-details p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+.arrangement-links {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.arrangement-links a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+
+.arrangement-links a:before {
+    font-size: 2rem;
+}
+
+.arrangement-links a img {
+    width: 30rem;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.arrangement-links a:hover {
+    color: var(--accent-color);
+}
+
+.lyrics-button {
+    padding: 12px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.lyrics-button:hover {
+    background-color: #444;
+}
+
+.contact-section {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 5rem 2rem;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+}
+
+#contact-form button {
+    background-color: #e91e63;
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #4a90e2;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 2rem;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+footer p {
+    text-align: center;
+}
+
+/* Updated CSS for the bottom-right social icons */
+.bottom-right-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex; /* Use flex to ensure proper layout */
+    gap: 10px;
+    z-index: 10;
+    transition: bottom 0.3s ease;
+    border: none; /* Ensures no border here too */
+}
+
+
+.social-logo {
+    width: 60px;
+    height: auto;
+    transition: transform 0.3s ease;
+    border: none; /* Removes any border */
+    outline: none; /* Removes any outline */
+    margin: 0; /* Removes any margin */
+    padding: 0; /* Removes any padding */
+}
+
+
+.social-logo:hover {
+    transform: scale(1.1);
+}
+.page-banner {
+    position: relative;
+    width: 100%;
+    height: 40vh; /* Adjusted to be shorter than the example */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px; /* Adjust this value to match your header height */
+    background-color: #f0f0f0;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%; /* Adjust this value to move the focal point up */
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 1s ease-out, transform 1.5s ease-out;
+}
+
+/* Animation classes */
+.banner-image.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.page-title {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 3rem;
+    margin-top: 80px; /* Adjust based on your header height */
+    padding: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+#main-content {
+    padding-top: 0;
+    position: relative;
+    z-index: 1;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matan Yosef - Musician, Arranger, Composer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="arrangements.html">Arrangements</a></li>
+                <li><a href="acapella.html">Acapella</a></li>
+                <li><a href="piano.html">Piano</a></li>
+                <li><a href="original.html">Original Songs</a></li>
+                <li><a href="bio.html">Bio</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <section id="home" class="hero">
+            <div class="video-container">
+                <!-- Static image first -->
+                <img src="Indexpic.JPG" alt="Matan Yosef" class="hero-image">
+                
+                <!-- Video (initially hidden) -->
+                <video class="hero-video" muted playsinline>
+                    <source src="pianoanimation.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="hero-content">
+                <h1>Matan Yosef</h1>
+                <h2>Arranger, Composer, Pianist</h2>
+                <div class="social-icons">
+                    <a href="#contact" class="cta-button">Get in Touch</a>
+                </div>
+            </div>
+            <div class="bottom-right-icons">
+                <a href="https://www.youtube.com/@MatiMusic02" target="_blank">
+                    <img src="youtube.webp" alt="YouTube Logo" class="social-logo">
+                </a>
+                <a href="https://www.instagram.com/matan._yosef?igsh=eDlhZ3J6OGNkajJw&utm_source=qr" target="_blank">
+                    <img src="instgram.png" alt="Instagram Logo" class="social-logo">
+                </a>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact-section">
+            <h2>Get in Touch</h2>
+            <form id="contact-form" action="https://formspree.io/f/xqazrwne" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>            
+        </section>
+    </main>
+    <footer>
+        <p class="copyright">&copy; 2025 Matan Yosef. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
