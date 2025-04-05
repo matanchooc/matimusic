@@ -106,6 +106,60 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('scroll', updateIconsPosition);
     window.addEventListener('resize', updateIconsPosition);
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const audios = [
+        document.getElementById('audio1'),
+        document.getElementById('audio2'),
+        document.getElementById('audio3')
+    ];
+    
+    let current = 0;
+    let next = 1;
+    const fadeDuration = 2000; // 2-second crossfade
+
+    // Initialize first track
+    audios[current].volume = 0;
+    audios[current].play();
+    fadeIn(audios[current]);
+
+    function fadeIn(audio) {
+        let volume = 0;
+        audio.volume = volume;
+        
+        const fadeInInterval = setInterval(() => {
+            if (volume < 1) {
+                volume += 0.1;
+                audio.volume = volume.toFixed(1);
+            } else {
+                clearInterval(fadeInInterval);
+            }
+        }, 200);
+    }
+
+    function fadeOut(audio) {
+        let volume = 1;
+        
+        const fadeOutInterval = setInterval(() => {
+            if (volume > 0) {
+                volume -= 0.1;
+                audio.volume = volume.toFixed(1);
+            } else {
+                audio.pause();
+                clearInterval(fadeOutInterval);
+            }
+        }, 200);
+    }
+
+    function playNext() {
+        fadeOut(audios[current]);
+        current = next;
+        next = (current + 1) % audios.length;
+        fadeIn(audios[current]);
+    }
+
+    // Schedule track changes
+    setInterval(playNext, 15000); // Change every 15 seconds
+});
 // Replace your existing script.js content with this
 document.addEventListener('DOMContentLoaded', () => {
     const image = document.querySelector('.hero-image');
@@ -120,11 +174,16 @@ document.addEventListener('DOMContentLoaded', () => {
         video.play();
         video.loop = true;
     }
-
+    document.querySelector('.hamburger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
     // Show video after 2 seconds
     timer = setTimeout(showVideo, 2000);
 
     // Or show video on interaction
     document.querySelector('.hero').addEventListener('mousemove', showVideo);
     document.querySelector('.hero').addEventListener('click', showVideo);
+    document.querySelector('.hamburger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('mobile-active');
+    });
 });
