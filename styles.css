@@ -78,18 +78,18 @@ body {
     .nav-links.active li {
         display: flex;
     }
+    
     .mobile-nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(26,26,26,0.95);
-        width: 100%;
         position: fixed;
         top: 0;
         left: 0;
+        width: 100%;
         z-index: 1001;
-        padding: 0.5rem 1rem;
-        margin-bottom: 0 !important;
+        background: rgba(26,26,26,0.95);
+        padding: 0.9rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .mobile-home {
         color: var(--secondary-color);
@@ -106,13 +106,14 @@ body {
     }
     /* Navigation */
      .nav-links {
-        position: absolute;
+        position: fixed;
         top: 60px;
         right: 0;
         flex-direction: column;
         background: rgba(26,26,26,0.95);
         width: 100%;
         display: none;
+        
     }
     .nav-links.active {
         display: flex;
@@ -164,8 +165,8 @@ body {
     }
     .nav-links li {
         width: 100%;
-        padding: 0.1rem 0;
-        margin: 0;
+        margin: 0 !important;
+        padding: 0.1rem 1rem !important;
         margin-left: 0 !important;
         padding-left: 15px; /* Matches Home padding */
     }
