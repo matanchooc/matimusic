@@ -21,15 +21,197 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 html {
     scroll-behavior: smooth;
+    font-size: 16px; /* Base for rem units */
 }
 
+img, video {
+    max-width: 100%;
+    height: auto;
+}
 body {
     background-color: #1a1a1a !important; /* Matches your main content background */
+    min-height: 100vh;
+    overflow-x: hidden;
 }
-
+.mobile-nav {
+    display: none;
+    pointer-events: auto !important; /* Enables clicks */
+}
+@media (max-width: 768px) {
+    /* Global adjustments */
+    html {
+        font-size: 14px;
+    }
+    
+    /* Hero section */
+    .hero {
+        min-height: auto; /* Let content determine height */
+        padding-bottom: 60px; /* Space for fixed header */
+        padding: 20px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+   .video-container video,
+    .video-background video {
+        object-position: 30% 50%; /* Shifts video slightly left */
+    }
+    nav {
+        position: relative;
+    }
+    .nav-links li:not(:first-child) {
+        display: none;
+    }
+    
+    .nav-links.active li {
+        display: flex;
+    }
+    .mobile-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(26,26,26,0.95);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1001;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0 !important;
+    }
+    .mobile-home {
+        color: var(--secondary-color);
+        padding: 0.6rem 1rem;
+        font-family: 'Open Sans', sans-serif;
+        text-decoration: none !important;
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: rgba(26,26,26,0.95);
+    }
+    /* Navigation */
+     .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        flex-direction: column;
+        background: rgba(26,26,26,0.95);
+        width: 100%;
+        display: none;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links.active + .hamburger span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+    .nav-links.active + .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-links.active + .hamburger span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+          padding: 0.8rem; /* Larger touch target */
+    }
+  .hamburger span {
+        width: 20px; /* Smaller icon */
+        height: 2px;
+        background: var(--secondary-color);
+        margin: 3px 0;
+        
+    }
+    .nav-links li:first-child {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 1rem;
+        z-index: 1001;
+    }
+     .nav-links a {
+        font-size: 1rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+    .nav-links li:first-child a {
+        padding: 1rem;
+        display: none;
+    }
+    .hamburger {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 1rem;
+        z-index: 1002;
+    }
+    .nav-links li {
+        width: 100%;
+        padding: 0.1rem 0;
+        margin: 0;
+        margin-left: 0 !important;
+        padding-left: 15px; /* Matches Home padding */
+    }
+    .nav-links.mobile-active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 50px !important; /* Matches header height */
+        left: 0 !important; /* Aligns to left edge */
+        width: 100%;
+        right: auto !important;
+       background: rgba(26,26,26,0.95); /* Solid color */
+        padding-top: 0 !important;
+        max-height: 40vh;
+        
+    }
+    /* Content */
+    .content-section {
+        padding: 3rem 1rem;
+    }
+    header {
+        padding: 0.5rem !important; /* Thinner nav bar */
+    }
+    /* Form */
+    #contact-form {
+        max-width: 100%;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
+@media (min-width: 1025px) {
+    html {
+        font-size: 16px;
+    }
+}
+video {
+    -webkit-transform: translateZ(0); /* Smooth mobile rendering */
+    transform: translateZ(0);
+}
 body.piano-page {
     background-image: url('piano-photo.JPG');
     background-size: cover;
@@ -47,6 +229,8 @@ header {
     width: 100%;
     z-index: 1000;
 }
+
+
 
 nav {
     display: flex;
@@ -103,6 +287,7 @@ nav {
     position: relative;
     z-index: 1;
     background: rgba(255, 255, 255, 0.8); /* Optional: Add subtle overlay for readability */
+    padding-top: 80px; /* Matches header height */
 }
 .video-background video {
     width: 100%;
@@ -111,8 +296,11 @@ nav {
 }
 
 .hero-content {
-    text-align: center; /* Center all child elements */
-    width: 100%; /* Ensure full width for alignment */
+    text-align: center;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+    
 }
 
 
@@ -137,6 +325,8 @@ nav {
     height: 100%;
     object-fit: cover; /* Ensures full coverage */
     transition: opacity 1s ease; /* Smooth fade effect */
+    min-height: 100%;
+    min-width: 100%;
 }
 .hero-image {
     position: absolute;
@@ -150,21 +340,6 @@ nav {
 .video-container video {
     opacity: 0; /* Start with video hidden */
 }
-.video-container,
-.video-background {
-    height: 100vh;
-    object-position: center;
-}
-@media screen and (max-height: 600px) {
-    .video-container {
-        height: 60vh; /* Adjust for smaller vertical screens */
-    }
-}
-html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 15px;
@@ -195,12 +370,7 @@ html, body {
         1px -1px 0 black,
       
 }
-.hero h1, 
-.hero h2, 
-.cta-button {
-    margin-left: auto;
-    margin-right: auto;
-}
+
 .cta-button {
     background-color: #e91e63 !important;
     color: white !important;
@@ -246,6 +416,7 @@ html, body {
 
 .arrangement-item {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin: 40px 0;
     padding: 20px;
@@ -269,6 +440,7 @@ html, body {
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
+    margin-bottom: 1rem;
 }
 
 .arrangement-details {
@@ -473,4 +645,5 @@ footer p {
     padding-top: 0;
     position: relative;
     z-index: 1;
-}
+} 
+ 
