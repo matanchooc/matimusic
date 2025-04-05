@@ -78,7 +78,10 @@ body {
     .nav-links.active li {
         display: flex;
     }
-    
+    .fade-in-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+    }
     .mobile-nav {
         position: fixed;
         top: 0;
@@ -215,6 +218,7 @@ body {
 video {
     -webkit-transform: translateZ(0); /* Smooth mobile rendering */
     transform: translateZ(0);
+    
 }
 body.piano-page {
     background-image: url('piano-photo.JPG');
@@ -414,9 +418,11 @@ nav {
     transform: translateY(0);
 }
 
-.fade-in-on-scroll {
+.fade-in-on-scroll {    
     opacity: 0;
-    transform: translateY(20px);
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+    transition: opacity 1.5s ease-out, -webkit-transform 1.5s ease-out;
     transition: opacity 1.5s ease-out, transform 1.5s ease-out;
 }
 
