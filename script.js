@@ -187,3 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.nav-links').classList.toggle('mobile-active');
     });
 });
+function isInstagram() {
+    return navigator.userAgent.match(/Instagram/i);
+}
+
+if(isInstagram()) {
+    document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+        el.classList.add('fade-in');
+    });
+}
